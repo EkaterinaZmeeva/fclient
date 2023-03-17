@@ -39,6 +39,7 @@ public class PinpadActivity extends AppCompatActivity {
             setResult(RESULT_OK, it);
             finish();
         });
+
     }
 
 
