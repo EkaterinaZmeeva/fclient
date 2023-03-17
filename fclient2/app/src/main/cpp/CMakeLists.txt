@@ -16,7 +16,7 @@ project("fclient")
 
 
 add_library( # Sets the name of the library.
-        fclient
+        native-lib
 
         # Sets the library as a shared library.
         SHARED
@@ -26,13 +26,13 @@ add_library( # Sets the name of the library.
 
 add_library(spdlog STATIC IMPORTED)
 set_target_properties(spdlog PROPERTIES IMPORTED_LOCATION
-        /home/ekaterina/AndroidStudioProjects/libs/spdlog/build/${ANDROID_ABI}/libspdlog.so)
+        /home/ekaterina/AndroidStudioProjects/libs/spdlog/build/x86_64/libspdlog.so)
 
 add_library(mbedcrypto SHARED IMPORTED)
 set_target_properties(mbedcrypto PROPERTIES IMPORTED_LOCATION
-        /home/ekaterina/AndroidStudioProjects/libs/mbedtls/build/${ANDROID_ABI}/library/libmbedcrypto.a)
+        /home/ekaterina/AndroidStudioProjects/libs/mbedtls/build/${ANDROID_ABI}/library/libmbedcrypto.so)
 
-target_include_directories(fclient PUBLIC
+target_include_directories(native-lib PUBLIC
         /home/ekaterina/AndroidStudioProjects/libs/spdlog/include
         /home/ekaterina/AndroidStudioProjects/libs/mbedtls/mbedtls/include)
 
@@ -56,7 +56,7 @@ find_library( # Sets the name of the path variable.
 # build script, prebuilt third-party libraries, or system libraries.
 
 target_link_libraries( # Specifies the target library.
-        fclient
+        native-lib
         spdlog
         mbedcrypto
         # Links the target library to the log library

@@ -48,3 +48,16 @@ Java_ru_iu3_fclient_MainActivity_randomBytes(JNIEnv *env, jclass, jint no) {
     return rnd;
 }
 
+
+extern "C"
+JNIEXPORT jbyteArray JNICALL
+Java_ru_iu3_fclient_MainActivity_encrypt(JNIEnv *env, jclass clazz, jbyteArray key,
+                                         jbyteArray data) {
+    // TODO: implement encrypt()
+}
+extern "C"
+JNIEXPORT jbyteArray JNICALL
+Java_ru_iu3_fclient_MainActivity_decrypt(JNIEnv *env, jclass clazz, jbyteArray key,
+                                         jbyteArray data) {
+    // TODO: implement decrypt()
+}
